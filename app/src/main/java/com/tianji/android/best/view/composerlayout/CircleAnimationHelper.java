@@ -1,5 +1,6 @@
 package com.tianji.android.best.view.composerlayout;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -7,7 +8,7 @@ import android.view.ViewGroup;
  * Created by Cegrano on 2015/8/5.
  */
 public class CircleAnimationHelper extends InOutAnimationHelper {
-    private float startDegree = -90F,endDegree = 90F;
+    private float startDegree = -170F, endDegree = -10F;
     private float inX,inY,outX,outY;
     private float distance;
     public CircleAnimationHelper(ViewGroup viewGroup, boolean isOut,float distance) {
@@ -30,8 +31,9 @@ public class CircleAnimationHelper extends InOutAnimationHelper {
     protected InOutAnimation getInOutAnimation(InOutAnimation.Direction direction, int duration, ViewGroup ViewGroup, int index) {
         int count = viewGroup.getChildCount();
         float degree = (endDegree - startDegree)/(count-1) * index + startDegree;
-        outX = (float) (inX + distance * Math.sin(degree));
-        outY = (float) Math.abs(inY + distance * Math.cos(degree));
+        outX = (float) (inX + distance * Math.cos(degree * Math.PI / 180));
+        outY = (float) (inY + distance * Math.sin(degree * Math.PI / 180));
+        Log.e("CircleAnimation", degree + " " + inX + " " + inY + " " + outX + " " + outY);
         return new TranslateInOutAnimation(direction,duration,new View[]{viewGroup.getChildAt(index)},inX,inY,outX,outY);
     }
 }

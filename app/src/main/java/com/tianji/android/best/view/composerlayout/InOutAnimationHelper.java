@@ -2,7 +2,6 @@ package com.tianji.android.best.view.composerlayout;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnticipateInterpolator;
 import android.view.animation.OvershootInterpolator;
 
 /**
@@ -29,6 +28,15 @@ public abstract class InOutAnimationHelper {
             imgView.startAnimation(animation);
         }
         isOut = !isOut;
+    }
+
+    public boolean isOut() {
+        return isOut;
+    }
+
+    public void hide() {
+        if (isOut)
+            toggle();
     }
 
     protected abstract InOutAnimation getInOutAnimation(InOutAnimation.Direction direction, int duration, ViewGroup ViewGroup,int index);
