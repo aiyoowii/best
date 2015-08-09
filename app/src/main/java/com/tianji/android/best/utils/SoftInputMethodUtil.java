@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
 
-public class SoftInputMethodManager {
+public class SoftInputMethodUtil {
     public static void hide(Activity context) {
         if(context == null)
             return;

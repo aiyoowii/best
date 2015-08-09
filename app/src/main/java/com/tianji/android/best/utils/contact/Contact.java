@@ -1,4 +1,4 @@
-package com.tianji.android.best.utils;
+package com.tianji.android.best.utils.contact;
 
 import android.support.annotation.NonNull;
 import android.text.TextUtils;

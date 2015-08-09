@@ -1,20 +1,19 @@
 package com.tianji.android.best.ui.start;
 
+import android.app.Activity;
+import android.os.Bundle;
 import android.view.View;
 
 import com.tianji.android.best.R;
-import com.tianji.android.best.ui.common.BaseActivity;
-import com.tianji.android.best.utils.ViewMapping;
 
 /**
  * Created by cegrano on 15/8/9.
  */
-@ViewMapping(id = R.layout.activity_first_guide)
-public class FistGuideActivity extends BaseActivity implements View.OnClickListener {
+public class FistGuideActivity extends Activity implements View.OnClickListener {
     @Override
-    protected void onStart() {
-        super.onStart();
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_first_guide);
     }
 
     @Override

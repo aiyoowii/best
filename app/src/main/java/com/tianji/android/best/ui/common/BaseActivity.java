@@ -2,20 +2,21 @@ package com.tianji.android.best.ui.common;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 
 import com.tianji.android.best.utils.ViewMappingUtil;
+import com.tianji.android.best.view.swipebacklayout.app.SwipeBackActivity;
 
 /**
  * Created by Cegrano on 2015/8/4.
+ * 只用于可以滑动返回的页面
  */
-public class BaseActivity extends FragmentActivity {
+public class BaseActivity extends SwipeBackActivity {
     public boolean onJumpActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ViewMappingUtil.mapView(this,this,true);
+        ViewMappingUtil.mapView(this, this, true);
     }
 
     @Override

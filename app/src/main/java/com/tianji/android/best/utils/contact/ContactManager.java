@@ -1,4 +1,4 @@
-package com.tianji.android.best.utils;
+package com.tianji.android.best.utils.contact;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -15,7 +15,6 @@ import com.tianji.android.best.R;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by cegrano on 2015/1/20.

@@ -1,4 +1,4 @@
-package com.tianji.android.best.utils;
+package com.tianji.android.best.utils.contact;
 
 /**
  * Created by cegrano on 2015/1/20.

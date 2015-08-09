@@ -9,15 +9,14 @@ import android.widget.Toast;
 
 import com.tianji.android.best.CustomApplication;
 
-public class ToastManager {
+public class ToastUtil {
     public static final short TOAST_NORMAL = 1;
     public static final short TOAST_SINGLE = 2;
 
-    private static ToastManager INSTANCE;
+    private static ToastUtil INSTANCE;
     private Context mContext = CustomApplication.mInstance.getApplicationContext();
     private Toast mSingleToast;
     private Toast mToast;
-    private TextView mToastTextView;
     private final Handler mCommonToastHandler = new Handler() {
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
@@ -29,6 +28,7 @@ public class ToastManager {
             }
         }
     };
+    private TextView mToastTextView;
     private final Handler mSingleToastHandler = new Handler() {
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
@@ -66,9 +66,9 @@ public class ToastManager {
         }
     };
 
-    public synchronized static ToastManager getInstance() {
+    public synchronized static ToastUtil getInstance() {
         if (INSTANCE == null)
-            INSTANCE = new ToastManager();
+            INSTANCE = new ToastUtil();
 
         return INSTANCE;
     }
