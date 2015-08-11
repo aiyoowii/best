@@ -3,6 +3,7 @@ package com.tianji.android.best.ui.common;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.tianji.android.best.service.event.EventBusHelper;
 import com.tianji.android.best.utils.ViewMappingUtil;
 import com.tianji.android.best.view.swipebacklayout.app.SwipeBackActivity;
 
@@ -17,12 +18,19 @@ public class BaseActivity extends SwipeBackActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ViewMappingUtil.mapView(this, this, true);
+        EventBusHelper.getEventBus().register(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         onJumpActivity = false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBusHelper.getEventBus().unregister(this);
     }
 
     public void startActivityImpl(Class<?> jumpClass) {

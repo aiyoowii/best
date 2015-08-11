@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.common.eventbus.EventBus;
+import com.tianji.android.best.service.event.EventBusHelper;
 import com.tianji.android.best.utils.ViewMappingUtil;
 
 /**
@@ -18,7 +20,14 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getContentViewRes(),container,false);
         ViewMappingUtil.mapView(this,view,true);
+        EventBusHelper.getEventBus().register(this);
         return view;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        EventBusHelper.getEventBus().unregister(this);
     }
 
     abstract protected int getContentViewRes();
