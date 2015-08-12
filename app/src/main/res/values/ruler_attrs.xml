@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GraduateView">
+        <attr name="direction">
+            <enum name="auto" value="0"/>
+            <enum name="portrait" value="1"/>
+            <enum name="landscape" value="2"/>
+        </attr>
+        <attr name="graduate_deep" format="integer"/>
+        <attr name="graduate_padding" format="dimension"/>
+        <attr name="graduate_unit" format="string"/>
+        <attr name="graduate_start" format="integer"/>
+        <attr name="graduate_end" format="integer"/>
+        <attr name="graduate_gap" format="integer"/>
+        <attr name="graduate_drawable" format="reference"/>
+    </declare-styleable>
+</resources>
